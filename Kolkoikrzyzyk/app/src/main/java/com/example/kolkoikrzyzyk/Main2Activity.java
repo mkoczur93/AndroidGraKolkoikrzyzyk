@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -21,7 +22,16 @@ ImageView imageView6;
 ImageView imageView7;
 ImageView imageView8;
 ImageView imageView9;
-
+int image1 = 0;
+int image2 = 0;
+int image3 = 0;
+int image4 = 0;
+int image5 = 0;
+int image6 = 0;
+int image7 = 0;
+int image8 = 0;
+int image9 = 0;
+TextView text;
 
 
 
@@ -48,36 +58,23 @@ ImageView imageView9;
         imageView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                image1 = zmienwartosc(image1);
+                image(imageView1);
 
-                if(licznik % 2 == 0) {
-                    imageView1.setBackgroundResource(R.drawable.obrazek1);
-                    licznik++;
-                    imageView1.setClickable(false);
-                }
-                else
-                {
-                    imageView1.setBackgroundResource(R.drawable.obrazek2);
-                    licznik++;
-                    imageView1.setClickable(false);
-                }
+
 
             }
+
         });
+
+
         imageView2 = (ImageView) findViewById (R.id.imageView2);
         imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(licznik % 2 == 0) {
-                    imageView2.setBackgroundResource(R.drawable.obrazek1);
-                    licznik++;
-                    imageView2.setClickable(false);
-                }
-                else
-                {
-                    imageView2.setBackgroundResource(R.drawable.obrazek2);
-                    licznik++;
-                    imageView2.setClickable(false);
-                }
+
+                image2 = zmienwartosc(image2);
+                image(imageView2);
 
             }
         });
@@ -86,17 +83,8 @@ ImageView imageView9;
         imageView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(licznik % 2 == 0) {
-                    imageView3.setBackgroundResource(R.drawable.obrazek1);
-                    licznik++;
-                    imageView3.setClickable(false);
-                }
-                else
-                {
-                    imageView3.setBackgroundResource(R.drawable.obrazek2);
-                    licznik++;
-                    imageView3.setClickable(false);
-                }
+                image3 = zmienwartosc(image3);
+                image(imageView3);
 
             }
         });
@@ -105,17 +93,8 @@ ImageView imageView9;
         imageView4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(licznik % 2 == 0) {
-                    imageView4.setBackgroundResource(R.drawable.obrazek1);
-                    licznik++;
-                    imageView4.setClickable(false);
-                }
-                else
-                {
-                    imageView4.setBackgroundResource(R.drawable.obrazek2);
-                    licznik++;
-                    imageView4.setClickable(false);
-                }
+                image4 = zmienwartosc(image4);
+                image(imageView4);
 
             }
         });
@@ -124,17 +103,8 @@ ImageView imageView9;
         imageView5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(licznik % 2 == 0) {
-                    imageView5.setBackgroundResource(R.drawable.obrazek1);
-                    licznik++;
-                    imageView5.setClickable(false);
-                }
-                else
-                {
-                    imageView5.setBackgroundResource(R.drawable.obrazek2);
-                    licznik++;
-                    imageView5.setClickable(false);
-                }
+                image5 = zmienwartosc(image5);
+                image(imageView5);
 
             }
         });
@@ -143,17 +113,8 @@ ImageView imageView9;
         imageView6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(licznik % 2 == 0) {
-                    imageView6.setBackgroundResource(R.drawable.obrazek1);
-                    licznik++;
-                    imageView6.setClickable(false);
-                }
-                else
-                {
-                    imageView6.setBackgroundResource(R.drawable.obrazek2);
-                    licznik++;
-                    imageView6.setClickable(false);
-                }
+                image6 = zmienwartosc(image6);
+                image(imageView6);
 
             }
         });
@@ -162,17 +123,8 @@ ImageView imageView9;
         imageView7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(licznik % 2 == 0) {
-                    imageView7.setBackgroundResource(R.drawable.obrazek1);
-                    licznik++;
-                    imageView7.setClickable(false);
-                }
-                else
-                {
-                    imageView7.setBackgroundResource(R.drawable.obrazek2);
-                    licznik++;
-                    imageView7.setClickable(false);
-                }
+                image7 = zmienwartosc(image7);
+                image(imageView7);
 
             }
         });
@@ -181,17 +133,8 @@ ImageView imageView9;
         imageView8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(licznik % 2 == 0) {
-                    imageView8.setBackgroundResource(R.drawable.obrazek1);
-                    licznik++;
-                    imageView8.setClickable(false);
-                }
-                else
-                {
-                    imageView8.setBackgroundResource(R.drawable.obrazek2);
-                    licznik++;
-                    imageView8.setClickable(false);
-                }
+                image8 = zmienwartosc(image8);
+                image(imageView8);
 
             }
         });
@@ -200,19 +143,105 @@ ImageView imageView9;
         imageView9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(licznik % 2 == 0) {
-                    imageView9.setBackgroundResource(R.drawable.obrazek1);
-                    licznik++;
-                    imageView9.setClickable(false);
-                }
-                else
-                {
-                    imageView9.setBackgroundResource(R.drawable.obrazek2);
-                    licznik++;
-                    imageView9.setClickable(false);
-                }
+                image9 = zmienwartosc(image9);
+                image(imageView9);
 
             }
         });
+
+        text = (TextView) findViewById (R.id.text);
+
+
     }
+
+   void image(ImageView wartosc)
+    {
+        if(licznik % 2 == 0) {
+            wartosc.setBackgroundResource(R.drawable.obrazek1);
+            wartosc.setClickable(false);
+            licznik++;
+            wynik();
+
+        }
+        else
+        {
+            wartosc.setBackgroundResource(R.drawable.obrazek2);
+            wartosc.setClickable(false);
+            licznik++;
+            wynik();
+        }
+
+
+
+
+
+    };
+
+   int zmienwartosc(int wartosc1)
+    {
+        if(licznik % 2 == 0) {
+
+            wartosc1 = 1;
+
+        }
+        else
+        {
+
+            wartosc1  = 2;
+
+        }
+
+        return wartosc1;
+
+    };
+
+    void wynik()
+    {
+        if(image1 == 1 && image1  == image2 && image1 == image3 ||
+                image4 == 1 && image4  == image5 && image4 == image6 ||
+                image7 == 1 && image7  == image8 && image7 == image9 ||
+                image1 == 1 && image1 == image4 && image1 == image7 ||
+                image2 == 1 && image2 == image5 && image2 == image8 ||
+                image3 == 1 && image3 == image6 && image3 == image9 ||
+                image1 == 1 && image1 == image5 && image1 == image9 ||
+                image3 == 1 && image3 == image5 && image3 == image7)
+
+        {
+           Click();
+           text.setText("Wygral gracz 1");
+
+        }
+
+        else  if(image1 == 2 && image1  == image2 && image1 == image3 ||
+                image4 == 2 && image4  == image5 && image4 == image6 ||
+                image7 == 2 && image7  == image8 && image7 == image9 ||
+                image1 == 2 && image1 == image4 && image1 == image7 ||
+                image2 == 2 && image2 == image5 && image2 == image8 ||
+                image3 == 2 && image3 == image6 && image3 == image9 ||
+                image1 == 2 && image1 == image5 && image1 == image9 ||
+                image3 == 2 && image3 == image5 && image3 == image7)
+
+        {
+            Click();
+            text.setText("Wygral gracz 2");
+
+        }
+    };
+
+    void Click()
+    {
+        imageView1.setClickable(false);
+        imageView2.setClickable(false);
+        imageView3.setClickable(false);
+        imageView4.setClickable(false);
+        imageView5.setClickable(false);
+        imageView6.setClickable(false);
+        imageView7.setClickable(false);
+        imageView8.setClickable(false);
+        imageView9.setClickable(false);
+    };
+
+
 }
+
+
