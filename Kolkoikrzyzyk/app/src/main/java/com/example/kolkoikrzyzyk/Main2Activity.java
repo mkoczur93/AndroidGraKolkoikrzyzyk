@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -32,6 +33,10 @@ int image7 = 0;
 int image8 = 0;
 int image9 = 0;
 TextView text;
+TextView text1;
+
+
+
 
 
 
@@ -40,6 +45,11 @@ TextView text;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         getSupportActionBar().hide();
+
+        String name1 = getIntent().getStringExtra("name1");
+        Toast.makeText(this,name1, Toast.LENGTH_SHORT).show();
+        String name2 = getIntent().getStringExtra("name2");
+        Toast.makeText(this,name2, Toast.LENGTH_SHORT).show();
 
         button2 = (Button) findViewById (R.id.button2);
         button2.setOnClickListener(new View.OnClickListener() {
@@ -150,6 +160,7 @@ TextView text;
         });
 
         text = (TextView) findViewById (R.id.text);
+        text1 = (TextView) findViewById (R.id.text1);
 
 
     }
@@ -208,7 +219,9 @@ TextView text;
 
         {
            Click();
-           text.setText("Wygral gracz 1");
+            text.setText("Wygral:");
+
+
 
         }
 
@@ -223,8 +236,17 @@ TextView text;
 
         {
             Click();
-            text.setText("Wygral gracz 2");
+            text.setText("Wygral:");
 
+
+        }
+
+        else if(imageView1.isClickable() == false && imageView2.isClickable() == false && imageView3.isClickable() == false &&
+                imageView4.isClickable() == false && imageView5.isClickable() == false && imageView6.isClickable() == false &&
+                imageView7.isClickable() == false && imageView8.isClickable() == false && imageView9.isClickable() == false)
+        {
+
+            text.setText("Remis ! :)");
         }
     };
 
