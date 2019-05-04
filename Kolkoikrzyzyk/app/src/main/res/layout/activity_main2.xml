@@ -38,6 +38,60 @@
             android:text=""
             android:textColor="@android:color/black"
             android:textSize="30dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="82dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/runda"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:text="Teraz jest tura:"
+                    android:textSize="30sp"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/runda1"
+                    android:layout_width="match_parent"
+                    android:layout_height="62dp"
+                    android:text="Do końca rundy:"
+                    android:textSize="27sp"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="56dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:id="@+id/gracz"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:textSize="20sp"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/timer"
+                    android:layout_width="match_parent"
+                    android:layout_height="62dp"
+                    android:text="10s"
+                    android:textSize="27sp"
+                    android:gravity="center"/>
+            </LinearLayout>
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout

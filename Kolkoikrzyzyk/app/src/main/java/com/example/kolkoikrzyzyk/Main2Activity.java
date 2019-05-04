@@ -1,13 +1,17 @@
 package com.example.kolkoikrzyzyk;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.TimerTask;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -34,7 +38,15 @@ int image8 = 0;
 int image9 = 0;
 TextView text;
 TextView text1;
-
+String name3;
+String name4;
+TextView gracz;
+TextView timer;
+Thread pierwszy;
+int koniec = 0;
+int liczba = 10;
+int czas = 10;
+int stop = 0;
 
 
 
@@ -47,9 +59,10 @@ TextView text1;
         getSupportActionBar().hide();
 
         String name1 = getIntent().getStringExtra("name1");
-        Toast.makeText(this,name1, Toast.LENGTH_SHORT).show();
+        name3 = name1;
         String name2 = getIntent().getStringExtra("name2");
-        Toast.makeText(this,name2, Toast.LENGTH_SHORT).show();
+        name4 = name2;
+
 
         button2 = (Button) findViewById (R.id.button2);
         button2.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +70,9 @@ TextView text1;
             public void onClick(View v) {
 
                 Intent intent = new Intent (Main2Activity.this, Main2Activity.class);
+                intent.putExtra("name1", name3);
+                intent.putExtra("name2", name4);
+                finish();
                 startActivity(intent);
 
 
@@ -70,6 +86,9 @@ TextView text1;
             public void onClick(View v) {
                 image1 = zmienwartosc(image1);
                 image(imageView1);
+                stop = 1;
+                koniec();
+                thread1();
 
 
 
@@ -85,6 +104,10 @@ TextView text1;
 
                 image2 = zmienwartosc(image2);
                 image(imageView2);
+                stop = 1;
+                koniec();
+                thread1();
+
 
             }
         });
@@ -95,6 +118,10 @@ TextView text1;
             public void onClick(View v) {
                 image3 = zmienwartosc(image3);
                 image(imageView3);
+                stop = 1;
+                koniec();
+                thread1();
+
 
             }
         });
@@ -105,6 +132,10 @@ TextView text1;
             public void onClick(View v) {
                 image4 = zmienwartosc(image4);
                 image(imageView4);
+                stop = 1;
+                koniec();
+                thread1();
+
 
             }
         });
@@ -115,6 +146,10 @@ TextView text1;
             public void onClick(View v) {
                 image5 = zmienwartosc(image5);
                 image(imageView5);
+                stop = 1;
+                koniec();
+                thread1();
+
 
             }
         });
@@ -125,6 +160,10 @@ TextView text1;
             public void onClick(View v) {
                 image6 = zmienwartosc(image6);
                 image(imageView6);
+                stop = 1;
+                koniec();
+                thread1();
+
 
             }
         });
@@ -135,6 +174,10 @@ TextView text1;
             public void onClick(View v) {
                 image7 = zmienwartosc(image7);
                 image(imageView7);
+                stop = 1;
+                koniec();
+                thread1();
+
 
             }
         });
@@ -145,6 +188,10 @@ TextView text1;
             public void onClick(View v) {
                 image8 = zmienwartosc(image8);
                 image(imageView8);
+                stop = 1;
+                koniec();
+                thread1();
+
 
             }
         });
@@ -155,15 +202,21 @@ TextView text1;
             public void onClick(View v) {
                 image9 = zmienwartosc(image9);
                 image(imageView9);
+                stop = 1;
+                koniec();
+                thread1();
+
 
             }
         });
 
         text = (TextView) findViewById (R.id.text);
         text1 = (TextView) findViewById (R.id.text1);
-
-
-    }
+        gracz = (TextView) findViewById (R.id.gracz);
+        timer = (TextView) findViewById (R.id.timer);
+        gracz.setText(name3);
+        thread1();
+    }///
 
    void image(ImageView wartosc)
     {
@@ -172,6 +225,10 @@ TextView text1;
             wartosc.setClickable(false);
             licznik++;
             wynik();
+            gracz.setText(name4);
+
+
+
 
         }
         else
@@ -180,6 +237,7 @@ TextView text1;
             wartosc.setClickable(false);
             licznik++;
             wynik();
+            gracz.setText(name3);
         }
 
 
@@ -220,6 +278,8 @@ TextView text1;
         {
            Click();
             text.setText("Wygral:");
+            text1.setText(name3);
+            koniec = 1;
 
 
 
@@ -237,6 +297,8 @@ TextView text1;
         {
             Click();
             text.setText("Wygral:");
+            text1.setText(name4);
+            koniec = 1;
 
 
         }
@@ -247,6 +309,8 @@ TextView text1;
         {
 
             text.setText("Remis ! :)");
+            koniec = 1;
+
         }
     };
 
@@ -262,6 +326,82 @@ TextView text1;
         imageView8.setClickable(false);
         imageView9.setClickable(false);
     };
+
+    void koniec()
+    {
+        if(koniec==0)
+        {
+            liczba = czas;
+            timer.setText((liczba)+"s");
+        }
+
+        else
+        {
+            if(licznik % 2 == 0)
+                gracz.setText(name4);
+            else
+                gracz.setText(name3);
+
+        }
+    };
+
+    void thread1() {
+        Thread pierwszy = new Thread() {
+            @Override
+            public void run() {
+                while (stop == 0 && liczba >= 2 && koniec == 0){
+                    try {
+
+                        Thread.sleep(1000);
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                liczba--;
+                                timer.setText(String.valueOf(liczba + "s"));
+                            }
+                        });
+
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (stop == 1)
+                stop = 0;
+                else if (koniec == 1)
+                {
+
+                }
+                else{
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            licznik++;
+                            liczba = czas;;
+                            timer.setText(String.valueOf(liczba + "s"));
+                            if(gracz.getText() == name4)
+                            {
+                                gracz.setText(name3);
+                                thread1();
+                            }
+                            else
+                            {
+                                gracz.setText(name4);
+                                thread1();
+                            }
+                        }
+                    });
+                }
+
+
+
+            }
+        };
+
+        pierwszy.start();
+    }
+
+
 
 
 }
