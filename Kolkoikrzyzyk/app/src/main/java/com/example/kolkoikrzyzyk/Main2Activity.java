@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -229,7 +230,7 @@ String image11;
    void image(ImageView wartosc)
     {
         if(licznik % 2 == 0) {
-            if("0".equals(image10)) {
+            if("0".equals(image10) || TextUtils.isEmpty(image10)) {
                 wartosc.setBackgroundResource(R.drawable.kolko);
             }
             else if("1".equals(image10)) {
@@ -273,7 +274,7 @@ String image11;
             if("0".equals(image11)) {
                 wartosc.setBackgroundResource(R.drawable.kolko);
             }
-            else if("1".equals(image11)) {
+            else if("1".equals(image11) || TextUtils.isEmpty(image11)) {
                 wartosc.setBackgroundResource(R.drawable.krzyzyk);
             }
             else if("2".equals(image11)) {

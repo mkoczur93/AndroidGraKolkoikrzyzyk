@@ -28,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
     public String name2;
     public String image0;
     public String image3;
-    public String image4;
-    public String image5;
-    public String image7;
+
+
+
 
 
     @Override
@@ -38,12 +38,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
+        namegracz1 = (EditText) findViewById(R.id.namegracz1);
+        namegracz2 = (EditText) findViewById(R.id.namegracz2);
         openlist1 = (ImageView) findViewById(R.id.openlist1);
         openlist2 = (ImageView) findViewById(R.id.openlist2);
         String image1 = getIntent().getStringExtra("image1");
         image0 = image1;
         String image2 = getIntent().getStringExtra("image2");
         image3 = image2;
+        String name4 = getIntent().getStringExtra("name1");
+        name1 = name4;
+        String name3 = getIntent().getStringExtra("name2");
+        name2 = name3;
+        if(!"GRACZ 1".equals(name1))
+            namegracz1.setText(name1);
+        if(!"GRACZ 2".equals(name2))
+            namegracz2.setText(name2);
+
+
         ustawImageGracz1();
         ustawImageGracz2();
         Toast.makeText(MainActivity.this,image0,Toast.LENGTH_LONG).show();
@@ -54,6 +66,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent1 = new Intent (MainActivity.this, ImageList.class);
                 intent1.putExtra("listimage1", image0);
                 intent1.putExtra("listimage2", image3);
+                sprawdzname1();
+                sprawdzname2();
+                intent1.putExtra("name1", name1);
+                intent1.putExtra("name2", name2);
                 startActivity(intent1);
 
 
@@ -66,12 +82,15 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent1 = new Intent (MainActivity.this, ImageList2.class);
                 intent1.putExtra("listimage1", image0);
                 intent1.putExtra("listimage2", image3);
+                sprawdzname1();
+                sprawdzname2();
+                intent1.putExtra("name1", name1);
+                intent1.putExtra("name2", name2);
                 startActivity(intent1);
 
             }
         });
-        namegracz1 = (EditText) findViewById(R.id.namegracz1);
-        namegracz2 = (EditText) findViewById(R.id.namegracz2);
+
         buttonnext = (Button) findViewById (R.id.button);
         buttonnext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
 
     void ustawImageGracz1()
     {
-        if("0".equals(image0)) {
+        if("0".equals(image0) || TextUtils.isEmpty(image0)) {
             openlist1.setBackgroundResource(R.drawable.kolko);
         }
         else if("1".equals(image0)) {
@@ -158,10 +177,10 @@ public class MainActivity extends AppCompatActivity {
 
     void ustawImageGracz2()
     {
-        if("0".equals(image3)) {
+        if("0".equals(image3) ) {
             openlist2.setBackgroundResource(R.drawable.kolko);
         }
-        else if("1".equals(image3)) {
+        else if("1".equals(image3) || TextUtils.isEmpty(image0)) {
             openlist2.setBackgroundResource(R.drawable.krzyzyk);
         }
         else if("2".equals(image3)) {

@@ -36,6 +36,8 @@ public class ImageList2 extends AppCompatActivity {
     };
     String image2;
     String image4;
+    public String name1;
+    public String name2;
 
 
 
@@ -47,7 +49,13 @@ public class ImageList2 extends AppCompatActivity {
         image2 = image1;
         String image3 = getIntent().getStringExtra("listimage2");
         image4 = image3;
-        Toast.makeText(ImageList2.this,image4,Toast.LENGTH_SHORT).show();
+        String name3 = getIntent().getStringExtra("name1");
+        name1 = name3;
+        String name4 = getIntent().getStringExtra("name2");
+        name2 = name4;
+
+
+
         back1 = (Button) findViewById(R.id.back1);
         back1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +63,8 @@ public class ImageList2 extends AppCompatActivity {
                 Intent intent = new Intent (ImageList2.this, MainActivity.class);
                 intent.putExtra("image1", image2);
                 intent.putExtra("image2", image4);
+                intent.putExtra("name1", name1);
+                intent.putExtra("name2", name2);
                 finish();
                 startActivity(intent);
 
@@ -70,6 +80,8 @@ public class ImageList2 extends AppCompatActivity {
                 String image = ("" +position);
                 intent.putExtra("image1", image2);
                 intent.putExtra("image2", image);
+                intent.putExtra("name1", name1);
+                intent.putExtra("name2", name2);
                 finish();
                 startActivity(intent);
 
