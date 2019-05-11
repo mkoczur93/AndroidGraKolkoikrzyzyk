@@ -47,6 +47,8 @@ int koniec = 0;
 int liczba = 10;
 int czas = 10;
 int stop = 0;
+String image10;
+String image11;
 
 
 
@@ -62,6 +64,10 @@ int stop = 0;
         name3 = name1;
         String name2 = getIntent().getStringExtra("name2");
         name4 = name2;
+        String listimage1 = getIntent().getStringExtra("listimage1");
+        image10 = listimage1;
+        String listimage2 = getIntent().getStringExtra("listimage2");
+        image11 = listimage2;
 
 
         button2 = (Button) findViewById (R.id.button2);
@@ -72,6 +78,8 @@ int stop = 0;
                 Intent intent = new Intent (Main2Activity.this, Main2Activity.class);
                 intent.putExtra("name1", name3);
                 intent.putExtra("name2", name4);
+                intent.putExtra("listimage1", image10);
+                intent.putExtra("listimage2", image11);
                 finish();
                 startActivity(intent);
 
@@ -221,7 +229,36 @@ int stop = 0;
    void image(ImageView wartosc)
     {
         if(licznik % 2 == 0) {
-            wartosc.setBackgroundResource(R.drawable.obrazek1);
+            if("0".equals(image10)) {
+                wartosc.setBackgroundResource(R.drawable.kolko);
+            }
+            else if("1".equals(image10)) {
+                wartosc.setBackgroundResource(R.drawable.krzyzyk);
+            }
+            else if("2".equals(image10)) {
+                wartosc.setBackgroundResource(R.drawable.obrazek1);
+            }
+            else if("3".equals(image10)) {
+                wartosc.setBackgroundResource(R.drawable.obrazek2);
+            }
+            else if("4".equals(image10)) {
+                wartosc.setBackgroundResource(R.drawable.ann);
+            }
+            else if("5".equals(image10)) {
+                wartosc.setBackgroundResource(R.drawable.chrome);
+            }
+            else if("6".equals(image10)) {
+                wartosc.setBackgroundResource(R.drawable.facebook);
+            }
+            else if("7".equals(image10)) {
+                wartosc.setBackgroundResource(R.drawable.instagram);
+            }
+            else if("8".equals(image10)) {
+                wartosc.setBackgroundResource(R.drawable.mozzila);
+            }
+            else if("9".equals(image10)) {
+                wartosc.setBackgroundResource(R.drawable.youtube);
+            }
             wartosc.setClickable(false);
             licznik++;
             wynik();
@@ -233,7 +270,36 @@ int stop = 0;
         }
         else
         {
-            wartosc.setBackgroundResource(R.drawable.obrazek2);
+            if("0".equals(image11)) {
+                wartosc.setBackgroundResource(R.drawable.kolko);
+            }
+            else if("1".equals(image11)) {
+                wartosc.setBackgroundResource(R.drawable.krzyzyk);
+            }
+            else if("2".equals(image11)) {
+                wartosc.setBackgroundResource(R.drawable.obrazek1);
+            }
+            else if("3".equals(image11)) {
+                wartosc.setBackgroundResource(R.drawable.obrazek2);
+            }
+            else if("4".equals(image11)) {
+                wartosc.setBackgroundResource(R.drawable.ann);
+            }
+            else if("5".equals(image11)) {
+                wartosc.setBackgroundResource(R.drawable.chrome);
+            }
+            else if("6".equals(image11)) {
+                wartosc.setBackgroundResource(R.drawable.facebook);
+            }
+            else if("7".equals(image11)) {
+                wartosc.setBackgroundResource(R.drawable.instagram);
+            }
+            else if("8".equals(image11)) {
+                wartosc.setBackgroundResource(R.drawable.mozzila);
+            }
+            else if("9".equals(image11)) {
+                wartosc.setBackgroundResource(R.drawable.youtube);
+            }
             wartosc.setClickable(false);
             licznik++;
             wynik();
@@ -245,6 +311,7 @@ int stop = 0;
 
 
     };
+
 
    int zmienwartosc(int wartosc1)
     {
