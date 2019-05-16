@@ -50,15 +50,20 @@ public class MainActivity extends AppCompatActivity {
         name1 = name4;
         String name3 = getIntent().getStringExtra("name2");
         name2 = name3;
+        ustawImageGracz1();
+        ustawImageGracz2();
         if(!"GRACZ 1".equals(name1))
             namegracz1.setText(name1);
         if(!"GRACZ 2".equals(name2))
             namegracz2.setText(name2);
 
 
-        ustawImageGracz1();
-        ustawImageGracz2();
-        Toast.makeText(MainActivity.this,image0,Toast.LENGTH_LONG).show();
+
+
+
+
+
+
 
         openlist1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -180,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
         if("0".equals(image3) ) {
             openlist2.setBackgroundResource(R.drawable.kolko);
         }
-        else if("1".equals(image3) || TextUtils.isEmpty(image0)) {
+        else if("1".equals(image3) || TextUtils.isEmpty(image3)) {
             openlist2.setBackgroundResource(R.drawable.krzyzyk);
         }
         else if("2".equals(image3)) {
