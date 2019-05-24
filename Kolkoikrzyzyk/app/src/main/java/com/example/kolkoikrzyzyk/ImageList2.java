@@ -38,6 +38,7 @@ public class ImageList2 extends AppCompatActivity {
     String image4;
     public String name1;
     public String name2;
+    public String zaczyna;
 
 
 
@@ -53,6 +54,9 @@ public class ImageList2 extends AppCompatActivity {
         name1 = name3;
         String name4 = getIntent().getStringExtra("name2");
         name2 = name4;
+        String zaczyna3 = getIntent().getStringExtra("zaczyna2");
+        zaczyna = zaczyna3;
+        Toast.makeText(this, zaczyna,Toast.LENGTH_SHORT).show();
 
 
 
@@ -65,6 +69,7 @@ public class ImageList2 extends AppCompatActivity {
                 intent.putExtra("image2", image4);
                 intent.putExtra("name1", name1);
                 intent.putExtra("name2", name2);
+                intent.putExtra("zaczyna2", zaczyna);
                 finish();
                 startActivity(intent);
 
@@ -82,6 +87,7 @@ public class ImageList2 extends AppCompatActivity {
                 intent.putExtra("image2", image);
                 intent.putExtra("name1", name1);
                 intent.putExtra("name2", name2);
+                intent.putExtra("zaczyna2", zaczyna);
                 finish();
                 startActivity(intent);
 

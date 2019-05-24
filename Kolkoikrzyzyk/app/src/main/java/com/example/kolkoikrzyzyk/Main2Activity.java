@@ -50,6 +50,7 @@ int czas = 10;
 int stop = 0;
 String image10;
 String image11;
+String zaczyna;
 
 
 
@@ -69,6 +70,9 @@ String image11;
         image10 = listimage1;
         String listimage2 = getIntent().getStringExtra("listimage2");
         image11 = listimage2;
+        String zaczyna2 = getIntent().getStringExtra("zaczyna2");
+        zaczyna = zaczyna2;
+        Toast.makeText(this, zaczyna,Toast.LENGTH_SHORT).show();
 
 
         button2 = (Button) findViewById (R.id.button2);
@@ -81,6 +85,7 @@ String image11;
                 intent.putExtra("name2", name4);
                 intent.putExtra("listimage1", image10);
                 intent.putExtra("listimage2", image11);
+                intent.putExtra("zaczyna2", zaczyna);
                 finish();
                 startActivity(intent);
 
@@ -223,92 +228,137 @@ String image11;
         text1 = (TextView) findViewById (R.id.text1);
         gracz = (TextView) findViewById (R.id.gracz);
         timer = (TextView) findViewById (R.id.timer);
+        if("0".equals(zaczyna) || TextUtils.isEmpty(zaczyna))
         gracz.setText(name3);
+        else
+        gracz.setText(name4);
         thread1();
     }///
 
    void image(ImageView wartosc)
     {
-        if(licznik % 2 == 0) {
-            if("0".equals(image10) || TextUtils.isEmpty(image10)) {
-                wartosc.setBackgroundResource(R.drawable.kolko);
-            }
-            else if("1".equals(image10)) {
-                wartosc.setBackgroundResource(R.drawable.krzyzyk);
-            }
-            else if("2".equals(image10)) {
-                wartosc.setBackgroundResource(R.drawable.obrazek1);
-            }
-            else if("3".equals(image10)) {
-                wartosc.setBackgroundResource(R.drawable.obrazek2);
-            }
-            else if("4".equals(image10)) {
-                wartosc.setBackgroundResource(R.drawable.ann);
-            }
-            else if("5".equals(image10)) {
-                wartosc.setBackgroundResource(R.drawable.chrome);
-            }
-            else if("6".equals(image10)) {
-                wartosc.setBackgroundResource(R.drawable.facebook);
-            }
-            else if("7".equals(image10)) {
-                wartosc.setBackgroundResource(R.drawable.instagram);
-            }
-            else if("8".equals(image10)) {
-                wartosc.setBackgroundResource(R.drawable.mozzila);
-            }
-            else if("9".equals(image10)) {
-                wartosc.setBackgroundResource(R.drawable.youtube);
-            }
-            wartosc.setClickable(false);
-            licznik++;
-            wynik();
-            gracz.setText(name4);
+        if("0".equals(zaczyna) || TextUtils.isEmpty(zaczyna))  {
+            if (licznik % 2 == 0) {
+                if ("0".equals(image10) || TextUtils.isEmpty(image10)) {
+                    wartosc.setBackgroundResource(R.drawable.kolko);
+                } else if ("1".equals(image10)) {
+                    wartosc.setBackgroundResource(R.drawable.krzyzyk);
+                } else if ("2".equals(image10)) {
+                    wartosc.setBackgroundResource(R.drawable.obrazek1);
+                } else if ("3".equals(image10)) {
+                    wartosc.setBackgroundResource(R.drawable.obrazek2);
+                } else if ("4".equals(image10)) {
+                    wartosc.setBackgroundResource(R.drawable.ann);
+                } else if ("5".equals(image10)) {
+                    wartosc.setBackgroundResource(R.drawable.chrome);
+                } else if ("6".equals(image10)) {
+                    wartosc.setBackgroundResource(R.drawable.facebook);
+                } else if ("7".equals(image10)) {
+                    wartosc.setBackgroundResource(R.drawable.instagram);
+                } else if ("8".equals(image10)) {
+                    wartosc.setBackgroundResource(R.drawable.mozzila);
+                } else if ("9".equals(image10)) {
+                    wartosc.setBackgroundResource(R.drawable.youtube);
+                }
+                wartosc.setClickable(false);
+                licznik++;
+                wynik();
+                gracz.setText(name4);
 
 
+            } else {
+                if ("0".equals(image11)) {
+                    wartosc.setBackgroundResource(R.drawable.kolko);
+                } else if ("1".equals(image11) || TextUtils.isEmpty(image11)) {
+                    wartosc.setBackgroundResource(R.drawable.krzyzyk);
+                } else if ("2".equals(image11)) {
+                    wartosc.setBackgroundResource(R.drawable.obrazek1);
+                } else if ("3".equals(image11)) {
+                    wartosc.setBackgroundResource(R.drawable.obrazek2);
+                } else if ("4".equals(image11)) {
+                    wartosc.setBackgroundResource(R.drawable.ann);
+                } else if ("5".equals(image11)) {
+                    wartosc.setBackgroundResource(R.drawable.chrome);
+                } else if ("6".equals(image11)) {
+                    wartosc.setBackgroundResource(R.drawable.facebook);
+                } else if ("7".equals(image11)) {
+                    wartosc.setBackgroundResource(R.drawable.instagram);
+                } else if ("8".equals(image11)) {
+                    wartosc.setBackgroundResource(R.drawable.mozzila);
+                } else if ("9".equals(image11)) {
+                    wartosc.setBackgroundResource(R.drawable.youtube);
+                }
+                wartosc.setClickable(false);
+                licznik++;
+                wynik();
+                gracz.setText(name3);
+            }
 
 
         }
-        else
-        {
-            if("0".equals(image11)) {
-                wartosc.setBackgroundResource(R.drawable.kolko);
+
+        else if("1".equals(zaczyna)) {
+
+            if (licznik % 2 == 0) {
+                if ("0".equals(image11)) {
+                    wartosc.setBackgroundResource(R.drawable.kolko);
+                } else if ("1".equals(image11) || TextUtils.isEmpty(image11)) {
+
+                    wartosc.setBackgroundResource(R.drawable.krzyzyk);
+
+                } else if ("2".equals(image11)) {
+                    wartosc.setBackgroundResource(R.drawable.obrazek1);
+                } else if ("3".equals(image11)) {
+                    wartosc.setBackgroundResource(R.drawable.obrazek2);
+                } else if ("4".equals(image11)) {
+                    wartosc.setBackgroundResource(R.drawable.ann);
+                } else if ("5".equals(image11)) {
+                    wartosc.setBackgroundResource(R.drawable.chrome);
+                } else if ("6".equals(image11)) {
+                    wartosc.setBackgroundResource(R.drawable.facebook);
+                } else if ("7".equals(image11)) {
+                    wartosc.setBackgroundResource(R.drawable.instagram);
+                } else if ("8".equals(image11)) {
+                    wartosc.setBackgroundResource(R.drawable.mozzila);
+                } else if ("9".equals(image11)) {
+                    wartosc.setBackgroundResource(R.drawable.youtube);
+                }
+                wartosc.setClickable(false);
+                licznik++;
+                wynik();
+                gracz.setText(name3);
+
+
+            } else {
+
+                if ("0".equals(image10) || TextUtils.isEmpty(image10)) {
+                    wartosc.setBackgroundResource(R.drawable.kolko);
+                } else if ("1".equals(image10)) {
+                    wartosc.setBackgroundResource(R.drawable.krzyzyk);
+                } else if ("2".equals(image10)) {
+                    wartosc.setBackgroundResource(R.drawable.obrazek1);
+                } else if ("3".equals(image10)) {
+                    wartosc.setBackgroundResource(R.drawable.obrazek2);
+                } else if ("4".equals(image10)) {
+                    wartosc.setBackgroundResource(R.drawable.ann);
+                } else if ("5".equals(image10)) {
+                    wartosc.setBackgroundResource(R.drawable.chrome);
+                } else if ("6".equals(image10)) {
+                    wartosc.setBackgroundResource(R.drawable.facebook);
+                } else if ("7".equals(image10)) {
+                    wartosc.setBackgroundResource(R.drawable.instagram);
+                } else if ("8".equals(image10)) {
+                    wartosc.setBackgroundResource(R.drawable.mozzila);
+                } else if ("9".equals(image10)) {
+                    wartosc.setBackgroundResource(R.drawable.youtube);
+                }
+                wartosc.setClickable(false);
+                licznik++;
+                wynik();
+                gracz.setText(name4);
+
             }
-            else if("1".equals(image11) || TextUtils.isEmpty(image11)) {
-                wartosc.setBackgroundResource(R.drawable.krzyzyk);
-            }
-            else if("2".equals(image11)) {
-                wartosc.setBackgroundResource(R.drawable.obrazek1);
-            }
-            else if("3".equals(image11)) {
-                wartosc.setBackgroundResource(R.drawable.obrazek2);
-            }
-            else if("4".equals(image11)) {
-                wartosc.setBackgroundResource(R.drawable.ann);
-            }
-            else if("5".equals(image11)) {
-                wartosc.setBackgroundResource(R.drawable.chrome);
-            }
-            else if("6".equals(image11)) {
-                wartosc.setBackgroundResource(R.drawable.facebook);
-            }
-            else if("7".equals(image11)) {
-                wartosc.setBackgroundResource(R.drawable.instagram);
-            }
-            else if("8".equals(image11)) {
-                wartosc.setBackgroundResource(R.drawable.mozzila);
-            }
-            else if("9".equals(image11)) {
-                wartosc.setBackgroundResource(R.drawable.youtube);
-            }
-            wartosc.setClickable(false);
-            licznik++;
-            wynik();
-            gracz.setText(name3);
         }
-
-
-
 
 
     };
@@ -316,18 +366,30 @@ String image11;
 
    int zmienwartosc(int wartosc1)
     {
-        if(licznik % 2 == 0) {
+        if("0".equals(zaczyna) || TextUtils.isEmpty(zaczyna)) {
+            if (licznik % 2 == 0) {
 
-            wartosc1 = 1;
+                wartosc1 = 1;
 
+            } else {
+
+                wartosc1 = 2;
+
+            }
         }
-        else
+
+        else if ("1".equals(zaczyna))
         {
+            if (licznik % 2 == 0) {
 
-            wartosc1  = 2;
+                wartosc1 = 2;
 
+            } else {
+
+                wartosc1 = 1;
+
+            }
         }
-
         return wartosc1;
 
     };

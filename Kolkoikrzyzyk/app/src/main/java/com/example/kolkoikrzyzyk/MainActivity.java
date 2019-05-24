@@ -23,11 +23,18 @@ public class MainActivity extends AppCompatActivity {
     EditText namegracz2;
     ImageView openlist1;
     ImageView openlist2;
+    ImageView wybrany1;
+    ImageView wybrany2;
 
     public String name1;
     public String name2;
     public String image0;
     public String image3;
+    public String bufor;
+    public String zaczyna1;
+    public String zaczyna2;
+
+
 
 
 
@@ -42,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
         namegracz2 = (EditText) findViewById(R.id.namegracz2);
         openlist1 = (ImageView) findViewById(R.id.openlist1);
         openlist2 = (ImageView) findViewById(R.id.openlist2);
+        wybrany1 = (ImageView) findViewById(R.id.wybrany1);
+        wybrany2 = (ImageView) findViewById(R.id.wybrany2);
         String image1 = getIntent().getStringExtra("image1");
         image0 = image1;
         String image2 = getIntent().getStringExtra("image2");
@@ -50,17 +59,20 @@ public class MainActivity extends AppCompatActivity {
         name1 = name4;
         String name3 = getIntent().getStringExtra("name2");
         name2 = name3;
+        String zaczyna = getIntent().getStringExtra("zaczyna2");
+        zaczyna2 = zaczyna;
         ustawImageGracz1();
         ustawImageGracz2();
+        Toast.makeText(this, zaczyna2,Toast.LENGTH_SHORT).show();
+        if("1".equals(zaczyna2)) {
+            wybrany1.setBackgroundResource(R.drawable.player);
+            wybrany2.setBackgroundResource(R.drawable.playerwybrany);
+        }
+
         if(!"GRACZ 1".equals(name1))
             namegracz1.setText(name1);
         if(!"GRACZ 2".equals(name2))
             namegracz2.setText(name2);
-
-
-
-
-
 
 
 
@@ -75,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 sprawdzname2();
                 intent1.putExtra("name1", name1);
                 intent1.putExtra("name2", name2);
+                intent1.putExtra("zaczyna2", zaczyna2);
                 startActivity(intent1);
 
 
@@ -91,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
                 sprawdzname2();
                 intent1.putExtra("name1", name1);
                 intent1.putExtra("name2", name2);
+                intent1.putExtra("zaczyna2", zaczyna2);
                 startActivity(intent1);
 
             }
@@ -107,15 +121,46 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("name2", name2);
                 intent.putExtra("listimage1", image0);
                 intent.putExtra("listimage2", image3);
+                intent.putExtra("zaczyna2", zaczyna2);
                 startActivity(intent);
 
 
             }
         });
+
+        wybrany1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               zaczyna1 = "1";
+               zaczyna2 = "0";
+               wybrany1.setBackgroundResource(R.drawable.playerwybrany);
+               wybrany2.setBackgroundResource(R.drawable.player);
+
+
+            }
+        });
+
+
+
+
+        wybrany2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                zaczyna1 = "0";
+                zaczyna2 = "1";
+                wybrany1.setBackgroundResource(R.drawable.player);
+                wybrany2.setBackgroundResource(R.drawable.playerwybrany);
+
+
+            }
+        });
+
+
             }
 
     String sprawdzname1()
-    {if(namegracz1.getText().toString().isEmpty())
+    {
+        if(namegracz1.getText().toString().isEmpty())
     {
         name1 = "GRACZ 1";
 
