@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -56,11 +57,13 @@ String zaczyna;
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         getSupportActionBar().hide();
+
 
         String name1 = getIntent().getStringExtra("name1");
         name3 = name1;
@@ -467,10 +470,22 @@ String zaczyna;
 
         else
         {
-            if(licznik % 2 == 0)
-                gracz.setText(name4);
-            else
-                gracz.setText(name3);
+            if("0".equals(zaczyna) || TextUtils.isEmpty(zaczyna)) {
+                if (licznik % 2 == 0)
+                    gracz.setText(name4);
+
+                else
+                    gracz.setText(name3);
+            }
+            else if ("1".equals(zaczyna))
+            {
+                if (licznik % 2 == 0)
+                    gracz.setText(name3);
+
+                else
+                    gracz.setText(name4);
+
+            }
 
         }
     };
