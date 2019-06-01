@@ -75,8 +75,6 @@ String zaczyna;
         image11 = listimage2;
         String zaczyna2 = getIntent().getStringExtra("zaczyna2");
         zaczyna = zaczyna2;
-        Toast.makeText(this, zaczyna,Toast.LENGTH_SHORT).show();
-
 
         button2 = (Button) findViewById (R.id.button2);
         button2.setOnClickListener(new View.OnClickListener() {

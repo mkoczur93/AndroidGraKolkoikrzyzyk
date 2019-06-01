@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
         zaczyna2 = zaczyna;
         ustawImageGracz1();
         ustawImageGracz2();
-        Toast.makeText(this, zaczyna2,Toast.LENGTH_SHORT).show();
         if("1".equals(zaczyna2)) {
             wybrany1.setBackgroundResource(R.drawable.player);
             wybrany2.setBackgroundResource(R.drawable.playerwybrany);

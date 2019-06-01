@@ -56,7 +56,7 @@ public class ImageList2 extends AppCompatActivity {
         name2 = name4;
         String zaczyna3 = getIntent().getStringExtra("zaczyna2");
         zaczyna = zaczyna3;
-        Toast.makeText(this, zaczyna,Toast.LENGTH_SHORT).show();
+
 
 
 
